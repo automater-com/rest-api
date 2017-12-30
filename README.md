@@ -42,7 +42,7 @@ You should sort it and create *query string* as above:
 ```
 email=example@domain.com&products[0][id]=7&products[0][quantity]=1&transaction_id=1
 ```
-At least you need to hash received ***query string*** with *API Secret* key:
+At the end you need to hash received ***query string*** with *API Secret* key:
 ```
 SHA256(email=example@domain.com&products[0][id]=7&products[0][quantity]=1&transaction_id=1YOUR_API_SECRET_HERE)
 ```
