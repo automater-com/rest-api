@@ -9,8 +9,8 @@ First you need API key and API secret - you can generate it by login to Automate
 It is recommended to use one of our SDK libraries: [PHP SDK](https://github.com/automater-pl/rest-php-sdk).
 ### API usage limits
 Automater API has the following limits:
-- 10 requests per second
-- 60 requests per minute
+- 5 requests per second
+- 30 requests per minute
 
 These limits are enforced to prevent abuse and may be changed in the future without notice.
 If you reach the limit server will return HTTP 429 status code and access will be blocked for next 3 minutes. 
@@ -66,6 +66,43 @@ POST and PUT requests should be send with request body as *application/x-www-for
     "code" => 500,
     "message" => "Invalid transaction_id param",
     "url" => "/rest/api/transactions.json"
+}
+```
+##### List transactions
+```
+GET /transactions.json
+```
+Available *query string*:
+```
+limit: count of returned records (min: 1, max: 100)
+page: current page of results (default: 1)
+status: status of listings (default: all, available: 1 - active, 2 - inactive)
+sort: sort direction (default: desc, available: asc - ascending, desc - descending)
+```
+Approximate server response:
+```
+{
+    "data": {
+        "_currentPage": 2,
+        "_pagesCount": 14,
+        "_recordsCount": 14,
+        "_currentCount": 1,
+        "products": [
+            {
+                "id": 356232224,
+                "product_id": 2242142,
+                "paid": true,
+                "mail": "test@domain.com",
+                "phone": "",
+                "quantity": 1,
+                "price": 1,
+                "currency": "PLN",
+                "sent": 1,
+                "created": 1514728514
+            }
+        ]
+    },
+    "status": "success"
 }
 ```
 ##### List products
