@@ -76,7 +76,6 @@ Available *query string*:
 ```
 limit: count of returned records (min: 1, max: 100)
 page: current page of results (default: 1)
-status: status of listings (default: all, available: 1 - active, 2 - inactive)
 sort: sort direction (default: desc, available: asc - ascending, desc - descending)
 ```
 Approximate server response:
