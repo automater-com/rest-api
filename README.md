@@ -154,8 +154,12 @@ connector_id: id of payment gateway if you'd like to redirect customer to paymen
 products: array of purchased products in below format (required):
   products[0][id] - id of first product
   products[0][quantity] - quantity of first product to purchase
+  products[0][price] - price of first product (if not passed value will be taken from product settings)
+  products[0][currency] - currency of first product (if not passed value will be taken from product settings)
   products[n][id] - id of Nth product
   products[n][quantity] - quantity of Nth product to purchase
+  products[n][price] - price of Nth product (if not passed value will be taken from product settings)
+  products[n][currency] - currency of Nth product (if not passed value will be taken from product settings)
 send_status_email: switch to send e-mail with order status (default: y, available: y - true, n - false)
 custom: custom string to add to transacation log (default: empty, available: 255 chars custom string)
 ```
