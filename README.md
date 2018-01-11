@@ -157,24 +157,18 @@ You should change {PRODUCT_ID} in request URI to your product ID. Approximate se
 ```
 {
     "data": {
-        "_currentPage": 2,
-        "_pagesCount": 14,
-        "_recordsCount": 14,
-        "_currentCount": 1,
-        "products": [
-            {
-                "id": 38,
-                "status": 1,
-                "type": 2,
-                "name": "TEST PRODUCT",
-                "url": "https://automater.pl/purchase/38/test-product",
-                "description": "<p>test-product</p>",
-                "price": 1,
-                "currency": "PLN",
-                "available_codes": 181,
-                "database_id": 480
-            }
-        ]
+        "product": {
+            "id": 3245323324,
+            "status": 1,
+            "type": 2,
+            "name": "test bonusy",
+            "url": "https://automater.pl/purchase/3245323324/test-product",
+            "description": "<p>test product</p>",
+            "price": 1,
+            "currency": "USD",
+            "available_codes": 4,
+            "database_id": 32442353
+        }
     },
     "status": "success"
 }
