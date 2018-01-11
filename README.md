@@ -50,7 +50,7 @@ SHA256(email=example@domain.com&products[0][id]=7&products[0][quantity]=1&transa
 ### Requests
 All responses are returned as JSON. In case of positive result server will respond with success HTTP 2xx status code.
 POST and PUT requests should be send with request body as *application/x-www-form-urlencoded* (form fields).
-##### Success response format
+#### Success response format
 ```
 {
     "status": "success",
@@ -59,7 +59,7 @@ POST and PUT requests should be send with request body as *application/x-www-for
     }
 }
 ```
-##### Error response format
+#### Error response format
 ```
 {
     "status" => "error",
@@ -68,6 +68,14 @@ POST and PUT requests should be send with request body as *application/x-www-for
     "url" => "/rest/api/transactions.json"
 }
 ```
+#### Available requests
+1. Transactions
+   - [List transactions](#list-transactions)
+   - [Create transaction](#create-transaction)
+   - [Post payment for transaction](#post-payment-for-transaction)
+2. Products
+   - [List products](#list-products)
+   - [Get product details](#get-product-details)
 ##### List transactions
 ```
 GET /transactions.json
@@ -116,6 +124,36 @@ type: type of listings (default: all, available: 1 - Allegro, 2 - products, 3 - 
 status: status of listings (default: all, available: 1 - active, 2 - inactive)
 ```
 Approximate server response:
+```
+{
+    "data": {
+        "_currentPage": 2,
+        "_pagesCount": 14,
+        "_recordsCount": 14,
+        "_currentCount": 1,
+        "products": [
+            {
+                "id": 38,
+                "status": 1,
+                "type": 2,
+                "name": "TEST PRODUCT",
+                "url": "https://automater.pl/purchase/38/test-product",
+                "description": "<p>test-product</p>",
+                "price": 1,
+                "currency": "PLN",
+                "available_codes": 181,
+                "database_id": 480
+            }
+        ]
+    },
+    "status": "success"
+}
+```
+##### Get product details
+```
+GET /products/{PRODUCT_ID}.json
+```
+You should change {PRODUCT_ID} in request URI to your product ID. Approximate server response:
 ```
 {
     "data": {
