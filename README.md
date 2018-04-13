@@ -212,7 +212,7 @@ If you pass *connector_id* field, eg. ID of your connected PayPal account, in *p
 address to redirect your customer.
 ##### Post payment for transaction
 ```
-POST /transactions/TRANSACTION_ID/payment.json
+POST /transactions/CART_ID/payment.json
 ```
 Available *form fields*:
 ```
