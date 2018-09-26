@@ -85,6 +85,7 @@ Available *query string*:
 limit: count of returned records (min: 1, max: 100)
 page: current page of results (default: 1)
 sort: sort direction (default: desc, available: asc - ascending, desc - descending)
+cart_id: list transactions from specific cart
 ```
 Approximate server response:
 ```
