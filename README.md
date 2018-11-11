@@ -76,6 +76,11 @@ POST and PUT requests should be send with request body as *application/x-www-for
 2. Products
    - [List products](#list-products)
    - [Get product details](#get-product-details)
+3. Databases
+   - [List databases](#list-databases)
+   - [Create database](#create-database)
+4. Codes
+   - [Add codes to database](#add-codes-to-database)
 ##### List transactions
 ```
 GET /transactions.json
@@ -235,5 +240,73 @@ Approximate server response:
     "status": "success"
 }
 ```
+##### List databases
+```
+GET /databases.json
+```
+Available *query string*:
+```
+limit: count of returned records (min: 1, max: 100)
+page: current page of results (default: 1)
+type: type of databases (default: all, available: 1 - standard, 2 - resursive)
+```
+Approximate server response:
+```
+{
+    "data": {
+        "_currentPage": 2,
+        "_pagesCount": 14,
+        "_recordsCount": 14,
+        "_currentCount": 1,
+        "databases": [
+            {
+                "id": 38,
+                "type": 1, (1 - standard, 2 - resursive)
+                "name": "test_database",
+                "codes_available": 14, (count of not used codes) 
+                "codes_sent": 3 (count of sent / used codes)
+            }
+        ]
+    },
+    "status": "success"
+}
+```
+##### Create database
+```
+POST /databases.json
+```
+Available *form fields*:
+```
+type: type of base - 1: standard, 2: recursive (required)
+name: name of base (available: 100 chars custom string, required)
+```
+Approximate server response:
+```
+{
+    "data": {
+        "id" => 36 (id of newly created base)
+    },
+    "status": "success"
+}
+```
+##### Add codes to database
+```
+POST /codes/DATABASE_ID.json
+```
+Available *form fields*:
+```
+codes: array of string with codes to add (required), e.g.:
+  codes[0] = "test_code"
+```
+Approximate server response:
+```
+{
+    "data": {
+        "database_id" => 36, (id of base to which the codes were added)
+        "added_count" => 17 (count of added codes)
+    },
+    "status": "success"
+}
+```
 ### Issues
-If you have problem with our API please [contact us directly](https://automater.pl/en/kontakt).
+If you have problem with our API please [contact us directly](https://automater.pl/kontakt).
