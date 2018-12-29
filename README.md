@@ -14,6 +14,16 @@ Automater API has the following limits:
 
 These limits are enforced to prevent abuse and may be changed in the future without notice.
 If you reach the limit server will return HTTP 429 status code and access will be blocked for next 3 minutes. 
+### Webhooks
+Automater API allows you to receive webhooks about specified events (e.g. new transaction). Notifications can be sent as POST request to specified URL.
+You can enable them by going to "Settings / settings" tab and select "API" from left-side menu.
+
+All requests are sent as JSON body. Each time when you receive notification you should verify *X-Notification-Secret* header 
+and compare it to *notification key* provided in the webhook settings to confirm its origin.
+
+After receiving notification your server should return one of HTTP success status codes (200, 201, 202, 204). In case of any other response Automater will retry notification delivery up to 5 days with random frequency.
+
+[Check examples with request headers and body structure.](https://github.com/automater-pl/rest-api/blob/master/webhook-requests.md)
 ### Security
 Each request should have ***X-Api-Key*** header with your *API Key*.
 In case of using POST or PUT methods you need to calculate *signature* string and pass it in ***X-Api-Signature*** header. 
