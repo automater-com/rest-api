@@ -110,7 +110,7 @@ Approximate server response:
         "_pagesCount": 14,
         "_recordsCount": 14,
         "_currentCount": 1,
-        "products": [
+        "transactions": [
             {
                 "id": 356232224,
                 "product_id": 2242142,
