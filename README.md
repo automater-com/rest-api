@@ -219,7 +219,8 @@ Approximate server response:
          "created_at": 15477276362,
          "payment_url": null,
          "order_amount": 11.32,
-         "order_currency": "USD"
+         "order_currency": "USD",
+         "status_url": "https://automater.pl/cart-status/3424/dsknfkjbshjafhec3u78bfdw/"
     },
     "status": "success"
 }
