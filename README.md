@@ -9,8 +9,8 @@ First you need API key and API secret - you can generate it by login to Automate
 It is recommended to use one of our SDK libraries: [PHP SDK](https://github.com/automater-pl/rest-php-sdk).
 ### API usage limits
 Automater API has the following limits:
-- 5 requests per second
-- 30 requests per minute
+- 10 requests per second
+- 60 requests per minute
 
 These limits are enforced to prevent abuse and may be changed in the future without notice.
 If you reach the limit server will return HTTP 429 status code and access will be blocked for next 3 minutes. 
