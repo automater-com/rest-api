@@ -153,6 +153,7 @@ Approximate server response:
                 "status": 1,
                 "type": 2,
                 "name": "TEST PRODUCT",
+                "ext_offer_id": 7123664374,
                 "url": "https://automater.pl/purchase/38/test-product",
                 "description": "<p>test-product</p>",
                 "price": 1,
