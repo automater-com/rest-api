@@ -83,6 +83,7 @@ POST and PUT requests should be send with request body as *application/x-www-for
    - [List transactions](#list-transactions)
    - [Create transaction](#create-transaction)
    - [Post payment for transaction](#post-payment-for-transaction)
+   - [Add note to registry](#add-note-to-registry)
 2. Products
    - [List products](#list-products)
    - [Get product details](#get-product-details)
@@ -249,6 +250,21 @@ Approximate server response:
         "amount" => 12.32,
         "currency" => "USD"
     },
+    "status": "success"
+}
+```
+##### Add note to registry
+```
+POST /transactions/TRANSACTION_ID/note.json
+```
+Available *form fields*:
+```
+note: note which should be added to registry, max 255 chars (required)
+```
+Approximate server response:
+```
+{
+    "data": {},
     "status": "success"
 }
 ```
