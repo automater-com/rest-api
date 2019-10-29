@@ -89,9 +89,11 @@ POST and PUT requests should be send with request body as *application/x-www-for
    - [Get product details](#get-product-details)
 3. Databases
    - [List databases](#list-databases)
+   - [Get database](#get-database)
    - [Create database](#create-database)
 4. Codes
    - [Add codes to database](#add-codes-to-database)
+   - [Upload file to database](#upload-file-to-database)
 ##### List transactions
 ```
 GET /transactions.json
@@ -299,6 +301,25 @@ Approximate server response:
     "status": "success"
 }
 ```
+##### Get database
+```
+GET /databases/DATABASE_ID.json
+```
+Approximate server response:
+```
+{
+    "data": {
+        "database": {
+            "id": 38,
+            "type": 1, (1 - standard, 2 - resursive)
+            "name": "test_database",
+            "codes_available": 14, (count of not used codes) 
+            "codes_sent": 3 (count of sent / used codes)
+        }
+    },
+    "status": "success"
+}
+```
 ##### Create database
 ```
 POST /databases.json
@@ -332,6 +353,25 @@ Approximate server response:
     "data": {
         "database_id" => 36, (id of base to which the codes were added)
         "added_count" => 17 (count of added codes)
+    },
+    "status": "success"
+}
+```
+##### Upload file to database
+```
+POST /files/DATABASE_ID.json
+```
+Available *form fields*:
+```
+filename: "test.jpg", (name of uploaded file (regex: /^[\w,\s-]+\.[A-Za-z]{3}$/))
+data: /9j/4AAQSkZJRgABAQEAYABgAAD/4QCeR== (base64 encoded body of file (max 10 MB))
+```
+Approximate server response:
+```
+{
+    "data": {
+        "database_id" => 36, (id of base to which the codes were added)
+        "filename" => 17 (count of added codes)
     },
     "status": "success"
 }
