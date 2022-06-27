@@ -9,7 +9,10 @@ Headers are common for all webhooks:
 ##### New transaction
 X-Notification-Type - ***NewTransaction***
 ```
-{  
+{
+   "cart":{
+      "id":433
+   },
    "buyer":{  
       "id":142694,
       "email":"test@example.com",
@@ -40,6 +43,9 @@ X-Notification-Type - ***NewTransaction***
 X-Notification-Type - ***NewPayment***
 ```
 {  
+   "cart":{
+      "id":null
+   },
    "buyer":{  
       "id":142697,
       "email":"test@example.com",
@@ -70,6 +76,9 @@ X-Notification-Type - ***NewPayment***
 X-Notification-Type - ***AllCodesSent***
 ```
 {  
+   "cart":{
+      "id":433
+   },
    "buyer":{  
       "id":142697,
       "email":"test@example.com",
